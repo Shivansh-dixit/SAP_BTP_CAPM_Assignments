@@ -1,0 +1,9 @@
+ID,patientId,doctorId,appointmentDate,appointmentTime,status,reason,notes,fee
+A001,P001,DOC1,2024-06-01,10:00:00,Completed,Chest pain,Patient stable,800
+A002,P002,DOC2,2024-06-02,11:00:00,Completed,Headache,MRI recommended,900
+A003,P003,DOC3,2024-06-03,09:00:00,Scheduled,Knee pain,X-ray done,700
+A004,P004,DOC4,2024-06-04,14:00:00,Scheduled,Fever,Paediatric checkup,600
+A005,P005,DOC1,2024-06-05,10:30:00,Cancelled,Palpitations,Cancelled by patient,800
+A006,P001,DOC5,2024-06-06,11:30:00,Scheduled,Follow-up,Post surgery review,1000
+A007,P002,DOC6,2024-06-07,15:00:00,NoShow,Migraine,Patient did not arrive,850
+A008,P003,DOC2,2024-06-08,09:30:00,Scheduled,Dizziness,Neurological eval,900

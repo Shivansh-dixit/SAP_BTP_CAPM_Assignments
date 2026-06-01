@@ -1,0 +1,7 @@
+ID,firstName,lastName,specialization,qualification,experience,fee,departmentId,phone,email,availableDays,isActive
+DOC1,Ramesh,Gupta,Cardiology,MBBS MD,15,800,D001,9876543210,ramesh@medicare.com,"Mon,Tue,Wed",true
+DOC2,Sunita,Sharma,Neurology,MBBS DM,12,900,D002,9876543211,sunita@medicare.com,"Mon,Wed,Fri",true
+DOC3,Anil,Mehta,Orthopedics,MBBS MS,10,700,D003,9876543212,anil@medicare.com,"Tue,Thu,Sat",true
+DOC4,Priya,Singh,Pediatrics,MBBS MD,8,600,D004,9876543213,priya@medicare.com,"Mon,Tue,Thu",true
+DOC5,Vikram,Patel,Cardiology,MBBS MD,20,1000,D001,9876543214,vikram@medicare.com,"Wed,Thu,Fri",true
+DOC6,Neha,Joshi,Neurology,MBBS DM,6,850,D002,9876543215,neha@medicare.com,"Mon,Fri,Sat",true

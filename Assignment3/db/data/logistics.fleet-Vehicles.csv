@@ -1,0 +1,6 @@
+ID,registrationNumber,type,make,model,year,capacity,fuelType,status,lastServiceDate,mileage,insuranceExpiry
+V01,MH12AB1234,Truck,Tata,LPT1613,2020,5000,Diesel,Available,2024-01-15,45000,2025-06-30
+V02,MH12CD5678,Van,Mahindra,Supro,2021,1000,Petrol,Available,2024-02-10,30000,2025-08-15
+V03,MH12EF9012,Bike,Honda,Activa,2022,50,Petrol,OnTrip,2024-03-05,15000,2025-09-20
+V04,MH12GH3456,Truck,Ashok Leyland,Dost,2019,3000,Diesel,Maintenance,2023-12-01,60000,2025-07-10
+V05,MH12IJ7890,Van,Force,Traveller,2021,2000,CNG,Available,2024-04-20,25000,2025-10-05

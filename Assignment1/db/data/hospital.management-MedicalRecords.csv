@@ -1,0 +1,6 @@
+ID,patientId,doctorId,appointmentId,diagnosis,prescription,testRecommended,recordDate
+MR001,P001,DOC1,A001,Angina pectoris,Aspirin 75mg,ECG Blood test,2024-06-01
+MR002,P002,DOC2,A002,Chronic migraine,Sumatriptan 50mg,MRI Brain,2024-06-02
+MR003,P003,DOC3,A003,Osteoarthritis,Ibuprofen 400mg,X-Ray Knee,2024-06-03
+MR004,P004,DOC4,A004,Viral fever,Paracetamol 500mg,CBC test,2024-06-04
+MR005,P001,DOC5,A006,Post surgery review,Continue medications,Echo test,2024-06-06

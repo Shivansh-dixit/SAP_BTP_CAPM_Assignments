@@ -1,0 +1,6 @@
+ID,vehicleId,serviceDate,serviceType,cost,description,nextServiceDate
+SR01,V01,2024-01-15,Regular,5000,Oil change and filter,2024-07-15
+SR02,V02,2024-02-10,Regular,4500,Tyre rotation and brake check,2024-08-10
+SR03,V04,2023-12-01,Repair,15000,Engine overhaul,2024-06-01
+SR04,V03,2024-03-05,Regular,3000,General service,2024-09-05
+SR05,V05,2024-04-20,Regular,4000,AC service and oil change,2024-10-20

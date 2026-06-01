@@ -1,0 +1,5 @@
+ID,name,company,phone,email,address,city,pincode,gstNumber,tier
+C01,Rahul Mehta,Mehta Traders,9711111111,rahul@mehta.com,123 MG Road,Mumbai,400001,27ABCDE1234F1Z5,Premium
+C02,Anjali Shah,Shah Enterprises,9722222222,anjali@shah.com,456 FC Road,Pune,411001,27FGHIJ5678K2Z6,Regular
+C03,Vikram Joshi,Joshi Industries,9733333333,vikram@joshi.com,789 Ring Road,Nagpur,440001,27KLMNO9012L3Z7,Enterprise
+C04,Pooja Nair,Nair Exports,9744444444,pooja@nair.com,321 NH8 Road,Nashik,422001,27PQRST3456M4Z8,Regular

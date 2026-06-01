@@ -1,0 +1,71 @@
+### 1. GET all events
+GET http://localhost:4004/odata/v4/event/Events
+
+### 2. GET published events sorted by startDate
+GET http://localhost:4004/odata/v4/event/Events?$filter=status eq 'Published'&$orderby=startDate asc
+
+### 3. GET events filtered by type Workshop
+GET http://localhost:4004/odata/v4/event/Events?$filter=eventType eq 'Workshop'
+
+### 4. GET events with available seats
+GET http://localhost:4004/odata/v4/event/Events?$filter=registeredCount lt maxAttendees
+
+### 5. GET all registrations for a specific event
+GET http://localhost:4004/odata/v4/event/Registrations?$filter=eventId eq 'E01'
+
+### 6. GET speakers sorted by rating descending
+GET http://localhost:4004/odata/v4/event/Speakers?$orderby=rating desc
+
+### 7. GET all speakers
+GET http://localhost:4004/odata/v4/event/Speakers
+
+### 8. POST a new registration
+POST http://localhost:4004/odata/v4/event/Registrations
+Content-Type: application/json
+
+{
+  "ID": "R11",
+  "eventId": "E01",
+  "attendeeName": "Rahul Gupta",
+  "attendeeEmail": "rahulg@gmail.com",
+  "attendeePhone": "9500000001",
+  "company": "SAP",
+  "ticketType": "General",
+  "registrationDate": "2024-06-15",
+  "status": "Confirmed",
+  "amountPaid": 2000,
+  "paymentId": "PAY011"
+}
+
+### 9. PATCH event status from Draft to Published
+PATCH http://localhost:4004/odata/v4/event/Events(ID='E03')
+Content-Type: application/json
+
+{
+  "status": "Published"
+}
+
+### 10. POST feedback for an event
+POST http://localhost:4004/odata/v4/event/Feedback
+Content-Type: application/json
+
+{
+  "ID": "F05",
+  "eventId": "E01",
+  "attendeeEmail": "rohit@gmail.com",
+  "overallRating": 5,
+  "contentRating": 4,
+  "venueRating": 5,
+  "speakerRating": 5,
+  "comment": "Amazing event loved every session",
+  "submittedAt": "2024-07-17T12:00:00"
+}
+
+### 11. GET all venues
+GET http://localhost:4004/odata/v4/event/Venues
+
+### 12. GET top 3 events
+GET http://localhost:4004/odata/v4/event/Events?$top=3
+
+### 13. GET events with select fields
+GET http://localhost:4004/odata/v4/event/Events?$select=ID,title,eventType,status,startDate

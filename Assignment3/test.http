@@ -1,0 +1,63 @@
+### 1. GET all vehicles
+GET http://localhost:4004/odata/v4/logistics/Vehicles
+
+### 2. GET available vehicles
+GET http://localhost:4004/odata/v4/logistics/Vehicles?$filter=status eq 'Available'
+
+### 3. GET shipments with status InTransit
+GET http://localhost:4004/odata/v4/logistics/Shipments?$filter=status eq 'InTransit'
+
+### 4. GET all shipments for a specific customer
+GET http://localhost:4004/odata/v4/logistics/Shipments?$filter=customerId eq 'C01'
+
+### 5. GET routes between two cities
+GET http://localhost:4004/odata/v4/logistics/Routes?$filter=fromCity eq 'Mumbai' and toCity eq 'Pune'
+
+### 6. GET drivers sorted by rating descending
+GET http://localhost:4004/odata/v4/logistics/Drivers?$orderby=rating desc
+
+### 7. GET all active routes
+GET http://localhost:4004/odata/v4/logistics/Routes?$filter=isActive eq true
+
+### 8. POST a new shipment booking
+POST http://localhost:4004/odata/v4/logistics/Shipments
+Content-Type: application/json
+
+{
+  "ID": "SH09",
+  "trackingNumber": "SL-2026-00009",
+  "customerId": "C01",
+  "driverId": "D01",
+  "vehicleId": "V01",
+  "pickupAddress": "123 MG Road",
+  "deliveryAddress": "456 FC Road",
+  "pickupCity": "Mumbai",
+  "deliveryCity": "Pune",
+  "weight": 300,
+  "status": "Booked",
+  "bookedAt": "2024-06-01T10:00:00",
+  "estimatedDelivery": "2024-06-03",
+  "charges": 2500,
+  "paymentStatus": "Pending"
+}
+
+### 9. PATCH shipment status to Delivered
+PATCH http://localhost:4004/odata/v4/logistics/Shipments(ID='SH02')
+Content-Type: application/json
+
+{
+  "status": "Delivered",
+  "deliveredAt": "2024-05-08T14:00:00"
+}
+
+### 10. GET drivers that are available
+GET http://localhost:4004/odata/v4/logistics/Drivers?$filter=status eq 'Available'
+
+### 11. GET shipments sorted by charges descending
+GET http://localhost:4004/odata/v4/logistics/Shipments?$orderby=charges desc
+
+### 12. GET top 3 shipments
+GET http://localhost:4004/odata/v4/logistics/Shipments?$top=3
+
+### 13. GET vehicles with select fields
+GET http://localhost:4004/odata/v4/logistics/Vehicles?$select=ID,registrationNumber,type,status

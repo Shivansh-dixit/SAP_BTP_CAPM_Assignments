@@ -1,0 +1,6 @@
+ID,name,email,phone,bio,company,designation,expertise,photoUrl,rating,totalTalks,isActive
+SP01,Dr. Anil Kumar,anil@techcorp.com,9711111111,SAP expert with 15 years experience,TechCorp,Chief Architect,SAP-BTP-CAP-ABAP,https://photos.com/anil.jpg,5,45,true
+SP02,Priya Sharma,priya@dev.com,9722222222,Full stack developer and cloud enthusiast,DevSoft,Senior Developer,JavaScript-Node-CAP,https://photos.com/priya.jpg,4,30,true
+SP03,Rahul Verma,rahul@cloud.com,9733333333,Cloud architect specializing in Azure,CloudTech,Cloud Architect,Azure-AWS-GCP,https://photos.com/rahul.jpg,5,60,true
+SP04,Sneha Joshi,sneha@startup.com,9744444444,Entrepreneur and startup mentor,StartupHub,CEO,Entrepreneurship-Business,https://photos.com/sneha.jpg,4,25,true
+SP05,Vikram Nair,vikram@sap.com,9755555555,SAP BTP specialist,SAP India,Solution Architect,SAP-BTP-Integration,https://photos.com/vikram.jpg,5,50,true

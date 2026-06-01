@@ -1,0 +1,13 @@
+studentId,courseCode,enrollmentDate,status,grade,gradePoints,attendancePercent
+S01,CS101,2021-08-01,Completed,A,10,92
+S01,CS201,2022-01-01,Completed,B,8,88
+S01,CS301,2023-01-01,Enrolled,,0,75
+S02,CS101,2021-08-01,Completed,A,10,95
+S02,CS201,2022-01-01,Completed,A,10,91
+S02,CS301,2023-01-01,Enrolled,,0,80
+S03,EC101,2021-08-01,Completed,B,8,85
+S03,EC201,2022-01-01,Enrolled,,0,78
+S04,MB101,2022-08-01,Enrolled,,0,82
+S05,CS101,2022-08-01,Completed,A,10,90
+S05,CS201,2023-01-01,Enrolled,,0,72
+S06,EC101,2022-08-01,Completed,A,10,94

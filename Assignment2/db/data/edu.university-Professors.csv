@@ -1,0 +1,6 @@
+ID,firstName,lastName,email,phone,departmentCode,designation,joinDate,salary,officeRoom
+P01,Anil,Kumar,anil@techuni.com,9811111111,CS,Full,2005-06-01,90000,A101
+P02,Meena,Rathi,meena@techuni.com,9822222222,EC,Distinguished,2003-04-15,110000,B201
+P03,Suresh,Nair,suresh@techuni.com,9833333333,MB,Full,2008-07-01,85000,C301
+P04,Priya,Iyer,priya@techuni.com,9844444444,CS,Associate,2012-01-10,75000,A102
+P05,Rahul,Sharma,rahul@techuni.com,9855555555,EC,Assistant,2018-08-01,60000,B202

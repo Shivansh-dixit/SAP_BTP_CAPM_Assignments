@@ -1,0 +1,5 @@
+ID,name,floor,head,capacity,phone,isActive
+D001,Cardiology,2,Dr. Ramesh Gupta,30,9876543210,true
+D002,Neurology,3,Dr. Sunita Sharma,25,9876543211,true
+D003,Orthopedics,1,Dr. Anil Mehta,20,9876543212,true
+D004,Pediatrics,4,Dr. Priya Singh,35,9876543213,true

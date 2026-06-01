@@ -1,0 +1,54 @@
+### 1. GET all courses
+GET http://localhost:4004/odata/v4/university/Courses
+
+### 2. GET all students
+GET http://localhost:4004/odata/v4/university/Students
+
+### 3. GET all enrollments
+GET http://localhost:4004/odata/v4/university/Enrollments
+
+### 4. GET courses filtered by department
+GET http://localhost:4004/odata/v4/university/Courses?$filter=departmentCode eq 'CS'
+
+### 5. GET courses filtered by semester
+GET http://localhost:4004/odata/v4/university/Courses?$filter=semester eq 1
+
+### 6. GET students with CGPA above 8.0
+GET http://localhost:4004/odata/v4/university/Students?$filter=cgpa gt 8.0
+
+### 7. GET courses where seats available
+GET http://localhost:4004/odata/v4/university/Courses?$filter=currentEnrolled lt maxStudents
+
+### 8. GET all enrollments for a specific student
+GET http://localhost:4004/odata/v4/university/Enrollments?$filter=studentId eq 'S01'
+
+### 9. POST new student enrollment
+POST http://localhost:4004/odata/v4/university/Enrollments
+Content-Type: application/json
+
+{
+  "studentId": "S07",
+  "courseCode": "CS101",
+  "enrollmentDate": "2024-01-15",
+  "status": "Enrolled",
+  "attendancePercent": 0
+}
+
+### 10. PATCH enrollment to add grade
+PATCH http://localhost:4004/odata/v4/university/Enrollments(studentId='S03',courseCode='EC201')
+Content-Type: application/json
+
+{
+  "grade": "A",
+  "gradePoints": 10,
+  "status": "Completed"
+}
+
+### 11. GET students sorted by CGPA descending
+GET http://localhost:4004/odata/v4/university/Students?$orderby=cgpa desc
+
+### 12. GET courses with select fields
+GET http://localhost:4004/odata/v4/university/Courses?$select=code,title,credits,semester
+
+### 13. GET top 5 students
+GET http://localhost:4004/odata/v4/university/Students?$top=5

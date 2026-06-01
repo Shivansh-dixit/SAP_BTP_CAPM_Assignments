@@ -1,0 +1,6 @@
+ID,firstName,lastName,dateOfBirth,gender,bloodGroup,phone,email,address,emergencyContact,registrationDate
+P001,Rahul,Verma,1990-05-15,Male,A+,9111111111,rahul@gmail.com,Delhi,9111111112,2024-01-10
+P002,Anjali,Kapoor,1985-08-22,Female,B+,9222222222,anjali@gmail.com,Mumbai,9222222223,2024-01-15
+P003,Suresh,Kumar,1978-03-10,Male,O+,9333333333,suresh@gmail.com,Bangalore,9333333334,2024-02-01
+P004,Meena,Iyer,2000-11-30,Female,AB+,9444444444,meena@gmail.com,Chennai,9444444445,2024-02-10
+P005,Arjun,Nair,1995-07-18,Male,B-,9555555555,arjun@gmail.com,Hyderabad,9555555556,2024-03-05

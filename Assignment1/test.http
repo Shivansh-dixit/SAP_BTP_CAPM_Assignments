@@ -1,0 +1,81 @@
+### 1. GET all doctors
+GET http://localhost:4004/odata/v4/hospital/Doctors
+
+### 2. GET all patients
+GET http://localhost:4004/odata/v4/hospital/Patients
+
+### 3. GET all appointments
+GET http://localhost:4004/odata/v4/hospital/Appointments
+
+### 4. GET doctors filtered by specialization
+GET http://localhost:4004/odata/v4/hospital/Doctors?$filter=specialization eq 'Cardiology'
+
+### 5. GET appointments for a specific date
+GET http://localhost:4004/odata/v4/hospital/Appointments?$filter=appointmentDate eq 2024-06-01
+
+### 6. GET patients filtered by blood group
+GET http://localhost:4004/odata/v4/hospital/Patients?$filter=bloodGroup eq 'B+'
+
+### 7. GET appointments by status
+GET http://localhost:4004/odata/v4/hospital/Appointments?$filter=status eq 'Scheduled'
+
+### 8. POST a new patient
+POST http://localhost:4004/odata/v4/hospital/Patients
+Content-Type: application/json
+
+{
+  "ID": "P006",
+  "firstName": "Pooja",
+  "lastName": "Sharma",
+  "dateOfBirth": "1993-04-12",
+  "gender": "Female",
+  "bloodGroup": "O+",
+  "phone": "9666666666",
+  "email": "pooja@gmail.com",
+  "address": "Pune",
+  "emergencyContact": "9666666667",
+  "registrationDate": "2024-06-01"
+}
+
+### 9. POST a new appointment
+POST http://localhost:4004/odata/v4/hospital/Appointments
+Content-Type: application/json
+
+{
+  "ID": "A009",
+  "patientId": "P006",
+  "doctorId": "DOC1",
+  "appointmentDate": "2024-06-10",
+  "appointmentTime": "10:00:00",
+  "status": "Scheduled",
+  "reason": "General checkup",
+  "fee": 800
+}
+
+### 10. PATCH appointment status to Completed
+PATCH http://localhost:4004/odata/v4/hospital/Appointments(ID='A003')
+Content-Type: application/json
+
+{
+  "status": "Completed"
+}
+
+### 11. PATCH doctor fee
+PATCH http://localhost:4004/odata/v4/hospital/Doctors('DOC1')
+Content-Type: application/json
+
+{
+  "fee": 900
+}
+
+### 12. DELETE an appointment
+DELETE http://localhost:4004/odata/v4/hospital/Appointments('A007')
+
+### 13. GET doctors sorted by fee descending
+GET http://localhost:4004/odata/v4/hospital/Doctors?$orderby=fee desc
+
+### 14. GET specific fields only
+GET http://localhost:4004/odata/v4/hospital/Doctors?$select=firstName,lastName,specialization
+
+### 15. GET top 3 patients
+GET http://localhost:4004/odata/v4/hospital/Patients?$top=3

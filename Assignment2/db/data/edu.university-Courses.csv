@@ -1,0 +1,7 @@
+code,title,description,credits,maxStudents,currentEnrolled,semester,departmentCode,professorId,schedule,roomNumber,isActive
+CS101,Intro to Programming,Basic programming concepts,4,60,45,1,CS,P01,MWF 10:00-11:00,R101,true
+CS201,Data Structures,Arrays trees graphs,4,50,40,3,CS,P04,MWF 11:00-12:00,R102,true
+EC101,Basic Electronics,Electronic components,3,50,35,1,EC,P02,TTH 09:00-10:30,R201,true
+EC201,Digital Circuits,Logic gates circuits,3,40,30,3,EC,P05,TTH 10:30-12:00,R202,true
+MB101,Business Management,Management principles,3,70,60,1,MB,P03,MWF 14:00-15:00,R301,true
+CS301,Algorithms,Algorithm design,4,45,20,5,CS,P01,MWF 09:00-10:00,R103,true

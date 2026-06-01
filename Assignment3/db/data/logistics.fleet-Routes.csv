@@ -1,0 +1,6 @@
+ID,fromCity,toCity,distance,estimatedHours,tollCharges,isActive
+R01,Mumbai,Pune,150,3.5,200,true
+R02,Pune,Nagpur,250,6.0,350,true
+R03,Mumbai,Nagpur,400,9.0,500,true
+R04,Nashik,Mumbai,180,4.0,250,true
+R05,Pune,Nashik,120,3.0,150,true

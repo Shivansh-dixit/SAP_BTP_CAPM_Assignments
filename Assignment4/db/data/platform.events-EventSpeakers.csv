@@ -1,0 +1,7 @@
+eventId,speakerId,topic,sessionTime,sessionDuration,roomNumber
+E01,SP01,SAP BTP Overview,09:30:00,60,Hall A
+E01,SP05,CAP Deep Dive,11:00:00,90,Hall A
+E01,SP03,Cloud Integration,14:00:00,60,Hall B
+E02,SP02,CAP Hands-on Lab,10:00:00,120,Room 1
+E02,SP01,CDS Data Modeling,13:00:00,90,Room 1
+E04,SP04,Startup Ecosystem,16:30:00,45,Main Stage

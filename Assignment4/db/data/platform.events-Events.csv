@@ -1,0 +1,5 @@
+ID,title,description,eventType,venueId,startDate,endDate,startTime,endTime,maxAttendees,registeredCount,ticketPrice,status,organizerName,organizerEmail,tags
+E01,SAP Tech Summit 2024,Annual SAP technology conference,Conference,V01,2024-07-15,2024-07-16,09:00:00,18:00:00,400,350,2000,Published,TechCorp India,info@techcorp.com,SAP-BTP-CAP
+E02,CAP Workshop Pune,Hands-on CAP development workshop,Workshop,V02,2024-07-20,2024-07-20,10:00:00,17:00:00,150,120,1500,Published,Dev Community,dev@community.com,CAP-Workshop-SAP
+E03,Cloud Webinar Series,Introduction to cloud computing,Webinar,V01,2024-08-01,2024-08-01,11:00:00,13:00:00,300,50,500,Draft,CloudExperts,info@cloud.com,Cloud-AWS-Azure
+E04,Startup Meetup Bangalore,Networking event for startups,Meetup,V03,2024-08-10,2024-08-10,16:00:00,20:00:00,500,200,0,Published,StartupHub,hub@startup.com,Startup-Networking

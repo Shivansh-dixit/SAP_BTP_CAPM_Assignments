@@ -1,0 +1,5 @@
+ID,eventId,attendeeEmail,overallRating,contentRating,venueRating,speakerRating,comment,submittedAt
+F01,E01,arjun@gmail.com,5,5,4,5,Excellent event very well organized,2024-07-17T10:00:00
+F02,E01,pooja@gmail.com,4,4,5,4,Great content and venue,2024-07-17T11:00:00
+F03,E02,meena@gmail.com,5,5,4,5,Very hands-on and practical,2024-07-21T09:00:00
+F04,E02,karan@gmail.com,4,5,3,4,Good workshop could be longer,2024-07-21T10:00:00

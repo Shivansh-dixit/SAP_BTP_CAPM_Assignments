@@ -1,0 +1,11 @@
+ID,eventId,attendeeName,attendeeEmail,attendeePhone,company,ticketType,registrationDate,status,amountPaid,paymentId
+R01,E01,Arjun Mehta,arjun@gmail.com,9611111111,Infosys,General,2024-06-01,Confirmed,2000,PAY001
+R02,E01,Pooja Singh,pooja@gmail.com,9622222222,TCS,VIP,2024-06-02,Confirmed,2000,PAY002
+R03,E01,Rohit Patel,rohit@gmail.com,9633333333,Wipro,General,2024-06-03,Confirmed,2000,PAY003
+R04,E02,Meena Iyer,meena@gmail.com,9644444444,Freelancer,Student,2024-06-05,Confirmed,1500,PAY004
+R05,E02,Karan Gupta,karan@gmail.com,9655555555,HCL,General,2024-06-06,Confirmed,1500,PAY005
+R06,E02,Riya Shah,riya@gmail.com,9666666666,Accenture,General,2024-06-07,Cancelled,1500,PAY006
+R07,E04,Suresh Kumar,suresh@gmail.com,9677777777,Startup1,General,2024-06-10,Confirmed,0,PAY007
+R08,E04,Anjali Nair,anjali@gmail.com,9688888888,Startup2,General,2024-06-11,Confirmed,0,PAY008
+R09,E01,Vijay Sharma,vijay@gmail.com,9699999999,IBM,VIP,2024-06-12,Attended,2000,PAY009
+R10,E02,Neha Joshi,neha@gmail.com,9600000000,Oracle,Student,2024-06-13,Waitlisted,1500,PAY010

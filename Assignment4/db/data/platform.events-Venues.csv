@@ -1,0 +1,4 @@
+ID,name,address,city,capacity,type,amenities,hourlyRate,contactPerson,phone,isActive
+V01,Grand Auditorium,123 MG Road,Mumbai,500,Auditorium,WiFi-Projector-AC-Parking,5000,Rahul Mehta,9811111111,true
+V02,Tech Conference Hall,456 FC Road,Pune,200,ConferenceHall,WiFi-Projector-AC,3000,Priya Shah,9822222222,true
+V03,Open Grounds,789 Ring Road,Bangalore,1000,Outdoor,Parking-Stage,2000,Anil Kumar,9833333333,true
