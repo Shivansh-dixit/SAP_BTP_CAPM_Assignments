@@ -1,0 +1,26 @@
+{
+  "name": "epm-complete",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/cds": "^9"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2.4",
+    "sqlite3": "^6.0.1"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "private": true,
+
+"cds": {
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "credentials": {
+        "url": "db/epm.db"
+      }
+    }
+  }
+}
+}
