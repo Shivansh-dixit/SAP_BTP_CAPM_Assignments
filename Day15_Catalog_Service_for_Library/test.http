@@ -1,0 +1,54 @@
+### 1. Service index
+GET http://localhost:4004
+
+### 2. All books
+GET http://localhost:4004/catalog/Books
+
+### 3. Single book
+GET http://localhost:4004/catalog/Books(b1000001-0000-0000-0000-000000000001)
+
+### 4. All authors
+GET http://localhost:4004/catalog/Authors
+
+### 5. Books with author
+GET http://localhost:4004/catalog/Books?$expand=author
+
+### 6. Author with books
+GET http://localhost:4004/catalog/Authors?$expand=books
+
+### 7. Filter by genre
+GET http://localhost:4004/catalog/Books?$filter=genre eq 'Fantasy'
+
+### 8. Sort by price
+GET http://localhost:4004/catalog/Books?$orderby=price desc
+
+### 9. Top 3 books
+GET http://localhost:4004/catalog/Books?$top=3
+
+### 10. Metadata
+GET http://localhost:4004/catalog/$metadata
+
+### 11. Verify email hidden (Step 6)
+GET http://localhost:4004/catalog/Authors?$select=name,email
+
+### 12. Try POST to readonly (should fail with 405)
+POST http://localhost:4004/catalog/Books
+Content-Type: application/json
+
+{
+  "title": "New Book",
+  "price": 15.99
+}
+
+### 13. Admin - Create new author (Step 7)
+POST http://localhost:4004/admin/Authors
+Content-Type: application/json
+
+{
+  "name": "Dan Brown",
+  "country": "United States",
+  "email": "dan@example.com"
+}
+
+### 14. Admin - Get authors (email should be visible)
+GET http://localhost:4004/admin/Authors
