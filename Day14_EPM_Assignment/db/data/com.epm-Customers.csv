@@ -1,0 +1,5 @@
+ID,name,email,phone,city,country_code,creditLimit
+cust1111-1234-4a5e-a1b2-c3d4e5f6g7h8,Enterprise Corp,procure@enterprise.com,555-9001,Boston,US,50000.00
+cust2222-1234-4a5e-a1b2-c3d4e5f6g7h8,Tech Solutions GmbH,info@techsol.de,444-9002,Munich,DE,35000.00
+cust3333-1234-4a5e-a1b2-c3d4e5f6g7h8,Alpha Retailers,contact@alpharetail.jp,888-9003,Kyoto,JP,15000.00
+cust4444-1234-4a5e-a1b2-c3d4e5f6g7h8,Beta Industries,purchasing@betaind.in,999-9004,Mumbai,IN,20000.00

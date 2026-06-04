@@ -1,0 +1,9 @@
+ID,name,description,price,currency_code,stock,minStock,rating,supplier_ID,category_ID
+p1111111-1234-4a5e-a1b2-c3d4e5f6g7h8,ProBook 15,High performance laptop,1200.00,USD,50,10,4.5,s1111111-1234-4a5e-a1b2-c3d4e5f6g7h8,c2222222-1234-4a5e-a1b2-c3d4e5f6g7h8
+p2222222-1234-4a5e-a1b2-c3d4e5f6g7h8,ZenBook 14,Sleek ultraportable notebook,999.99,USD,35,5,4.2,s2222222-1234-4a5e-a1b2-c3d4e5f6g7h8,c2222222-1234-4a5e-a1b2-c3d4e5f6g7h8
+p3333333-1234-4a5e-a1b2-c3d4e5f6g7h8,Wireless Mouse,Ergonomic optical mouse,25.00,USD,4,15,3.9,s3333333-1234-4a5e-a1b2-c3d4e5f6g7h8,c3333333-1234-4a5e-a1b2-c3d4e5f6g7h8
+p4444444-1234-4a5e-a1b2-c3d4e5f6g7h8,Mechanical Keyboard,RGB backlit gaming keyboard,85.50,USD,2,10,4.7,s1111111-1234-4a5e-a1b2-c3d4e5f6g7h8,c3333333-1234-4a5e-a1b2-c3d4e5f6g7h8
+p5555555-1234-4a5e-a1b2-c3d4e5f6g7h8,ErgoChair,Comfortable mesh office chair,250.00,EUR,20,5,4.6,s2222222-1234-4a5e-a1b2-c3d4e5f6g7h8,c5555555-1234-4a5e-a1b2-c3d4e5f6g7h8
+p6666666-1234-4a5e-a1b2-c3d4e5f6g7h8,USB-C Hub,6-in-1 multi-port adapter,45.00,EUR,100,20,4.1,s3333333-1234-4a5e-a1b2-c3d4e5f6g7h8,c3333333-1234-4a5e-a1b2-c3d4e5f6g7h8
+p7777777-1234-4a5e-a1b2-c3d4e5f6g7h8,Standing Desk,Motorized adjustable height desk,450.00,USD,15,3,4.8,s4444444-1234-4a5e-a1b2-c3d4e5f6g7h8,c5555555-1234-4a5e-a1b2-c3d4e5f6g7h8
+p8888888-1234-4a5e-a1b2-c3d4e5f6g7h8,Notepad Pack,10-pack of A5 ruled notebooks,15.00,INR,200,50,4.0,s4444444-1234-4a5e-a1b2-c3d4e5f6g7h8,c4444444-1234-4a5e-a1b2-c3d4e5f6g7h8
