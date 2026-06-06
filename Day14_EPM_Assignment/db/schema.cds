@@ -1,75 +1,119 @@
+using { cuid, managed, Currency, Country } from '@sap/cds/common';
+
 namespace com.epm;
 
-using { cuid, managed, Country, Currency } from '@sap/cds/common';
-
-entity Suppliers : cuid {
-    name      : String(100);
-    contact   : String(100);
-    email     : String(100);
-    phone     : String(20);
-    city      : String(50);
-    country   : Country;
-    isActive  : Boolean default true;
+// ─── SUPPLIERS ───────────────────────────────────
+entity Suppliers : cuid, managed {
+  supplierName  : String(100);
+  contactPerson : String(100);
+  email         : String(255);
+  phone         : String(20);
+  city          : String(100);
+  country       : Country;
+  isActive      : Boolean default true;
+  products      : Association to many Products on products.supplier = $self;
 }
 
-entity Categories : cuid {
-    name           : String(50);
-    description    : String(255);
-    parentCategory : Association to Categories;
+// ─── CATEGORIES ──────────────────────────────────
+entity Categories : cuid, managed {
+  categoryName  : String(100);
+  description   : String(500);
+  products      : Association to many Products on products.category = $self;
 }
 
+// ─── PRODUCTS ────────────────────────────────────
 entity Products : cuid, managed {
-    name        : String(100);
-    description : String(255);
-    price       : Decimal(10, 2);
-    currency    : Currency;
-    stock       : Integer;
-    minStock    : Integer;
-    rating      : Decimal(2, 1);
-    supplier    : Association to Suppliers;
-    category    : Association to Categories;
+  productName   : String(100);
+  description   : String(500);
+  price         : Decimal(10,2);
+  currency      : Currency;
+  stock         : Integer default 0;
+  minStock      : Integer default 10;
+  rating        : Decimal(2,1);
+  supplier      : Association to Suppliers;
+  category      : Association to Categories;
+  isAvailable   : Boolean default true;
 }
 
+// ─── CUSTOMERS ───────────────────────────────────
 entity Customers : cuid, managed {
-    name        : String(100);
-    email       : String(100);
-    phone       : String(20);
-    city        : String(50);
-    country     : Country;
-    creditLimit : Decimal(15, 2);
+  customerName  : String(100);
+  email         : String(255);
+  phone         : String(20);
+  city          : String(100);
+  country       : Country;
+  creditLimit   : Decimal(12,2) default 100000;
+  orders        : Association to many SalesOrders on orders.customer = $self;
 }
 
+// ─── SALES ORDERS ────────────────────────────────
 entity SalesOrders : cuid, managed {
-    orderNumber : String(20);
-    customer    : Association to Customers;
-    orderDate   : Date;
-    amounts     : Decimal(15, 2);
-    currency    : Currency;
-    status      : String(20);
-    items       : Composition of many SalesOrderItems on items.order = $self;
+  orderNumber    : String(20);
+  customer       : Association to Customers;
+  orderDate      : Date;
+  grossAmount    : Decimal(12,2);
+  netAmount      : Decimal(12,2);
+  taxAmount      : Decimal(10,2);
+  currency       : Currency;
+  status         : String(20) default 'New';
+  items          : Composition of many SalesOrderItems on items.order = $self;
 }
 
+// ─── SALES ORDER ITEMS ───────────────────────────
 entity SalesOrderItems : cuid {
-    order     : Association to SalesOrders;
-    product   : Association to Products;
-    quantity  : Integer;
-    unitPrice : Decimal(10, 2);
-    netAmount : Decimal(15, 2);
+  order          : Association to SalesOrders;
+  product        : Association to Products;
+  quantity       : Integer;
+  unitPrice      : Decimal(10,2);
+  netAmount      : Decimal(12,2);
+  currency       : Currency;
 }
 
-entity PurchaseOrders : cuid, managed {
-    poNumber  : String(20);
-    supplier  : Association to Suppliers;
-    orderDate : Date;
-    amounts   : Decimal(15, 2);
-    currency  : Currency;
-    status    : String(20);
-    items     : Composition of many PurchaseOrderItems on items.order = $self;
-}
+// ═══════════════════════════════════════════════════
+// VIEWS — Read-only analytical perspectives
+// ═══════════════════════════════════════════════════
 
-entity PurchaseOrderItems : cuid {
-    order     : Association to PurchaseOrders;
-    product   : Association to Products;
-    quantity  : Integer;
-    unitPrice : Decimal(10, 2);
-}
+// View: Product Catalog (customer-facing, flat)
+entity ProductCatalog as select from Products {
+  ID,
+  productName,
+  description,
+  price,
+  currency,
+  rating,
+  stock,
+  (price * 0.82) as priceExTax : Decimal(10,2),
+  (price * 0.18) as taxAmount  : Decimal(10,2),
+  supplier.supplierName as supplierName,
+  category.categoryName as categoryName,
+  case
+    when stock > 20 then 'In Stock'
+    when stock > 0  then 'Low Stock'
+    else 'Out of Stock'
+  end as availability : String(20)
+} where isAvailable = true;
+
+// View: Order Summary (flattened for reports)
+entity OrderSummary as select from SalesOrders {
+  ID,
+  orderNumber,
+  orderDate,
+  grossAmount,
+  netAmount,
+  taxAmount,
+  status,
+  customer.customerName as customerName,
+  customer.email        as customerEmail,
+  customer.city         as customerCity
+};
+
+// View: Low Stock Alert
+entity LowStockProducts as select from Products {
+  ID,
+  productName,
+  stock,
+  minStock,
+  supplier.supplierName as supplierName,
+  supplier.email        as supplierEmail,
+  supplier.phone        as supplierPhone
+} where stock <= minStock and isAvailable = true;
