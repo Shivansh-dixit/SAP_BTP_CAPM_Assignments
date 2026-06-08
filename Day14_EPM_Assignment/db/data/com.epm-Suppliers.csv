@@ -1,4 +1,4 @@
-ID,name,contact,email,phone,city,country_code,isActive
+ID,supplierName,contactPerson,email,phone,city,country_code,isActive
 s1111111-1234-4a5e-a1b2-c3d4e5f6g7h8,Global Tech Inc,John Doe,john@globaltech.com,555-0101,New York,US,true
 s2222222-1234-4a5e-a1b2-c3d4e5f6g7h8,EuroSupply Corp,Marie Logistics,marie@eurosupply.com,444-0202,Frankfurt,DE,true
 s3333333-1234-4a5e-a1b2-c3d4e5f6g7h8,Asia Components,Lee Wei,lee@asiastock.com,888-0303,Tokyo,JP,true

@@ -69,6 +69,31 @@ entity SalesOrderItems : cuid {
   currency       : Currency;
 }
 
+// ─── PURCHASE ORDERS ─────────────────────────────
+entity PurchaseOrders : cuid, managed {
+  poNumber      : String(20);
+  supplier      : Association to Suppliers;
+  orderDate     : Date;
+  expectedDate  : Date;
+  grossAmount   : Decimal(12,2);
+  netAmount     : Decimal(12,2);
+  taxAmount     : Decimal(10,2);
+  currency      : Currency;
+  status        : String(20) default 'Draft';
+  notes         : String(500);
+  items         : Composition of many PurchaseOrderItems on items.purchaseOrder = $self;
+}
+
+// ─── PURCHASE ORDER ITEMS ────────────────────────
+entity PurchaseOrderItems : cuid {
+  purchaseOrder : Association to PurchaseOrders;
+  product       : Association to Products;
+  quantity      : Integer;
+  unitPrice     : Decimal(10,2);
+  netAmount     : Decimal(12,2);
+  currency      : Currency;
+}
+
 // ═══════════════════════════════════════════════════
 // VIEWS — Read-only analytical perspectives
 // ═══════════════════════════════════════════════════

@@ -17,7 +17,7 @@
     "db": {
       "kind": "sqlite",
       "credentials": {
-        "url": "db/epm.db"
+        "url": "db.sqlite"
       }
     }
   }

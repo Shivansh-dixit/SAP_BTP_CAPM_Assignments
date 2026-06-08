@@ -1,0 +1,160 @@
+### 1. Get Products with Supplier details ($expand)
+GET http://localhost:4004/admin/Products?$expand=supplier
+
+### 2. Get Sales Orders with Customer and Items ($expand)
+GET http://localhost:4004/admin/SalesOrders?$expand=customer,items
+
+### 3. Filter Products by price and sort by name ($filter & $orderby)
+GET http://localhost:4004/admin/Products?$filter=price gt 100&$orderby=name asc
+
+### 4. Filter Customers by city ($filter)
+GET http://localhost:4004/admin/Customers?$filter=city eq 'Mumbai'
+
+### 5. Product Catalog View (Report with calculated stockStatus)
+GET http://localhost:4004/report/ProductCatalog
+
+### 6. Low Stock Alert (Report with filtered results)
+GET http://localhost:4004/report/LowStockAlert
+
+### 7. Order Report (Report with joined customer names)
+GET http://localhost:4004/report/OrderReport
+
+### 8. Sales Service restricted view (Verify field hiding)
+GET http://localhost:4004/sales/Products
+
+### 9. Deep Insert: Create Sales Order with Items (One deep insert POST)
+POST http://localhost:4004/sales/SalesOrders
+Content-Type: application/json
+
+{
+    "orderNumber": "SO-DEEP-777",
+    "customer_ID": "cust1111-1234-4a5e-a1b2-c3d4e5f6g7h8",
+    "orderDate": "2026-06-03",
+    "amounts": 300.00,
+    "currency_code": "USD",
+    "status": "New",
+    "items": [
+        {
+            "product_ID": "p3333333-1234-4a5e-a1b2-c3d4e5f6g7h8",
+            "quantity": 10,
+            "unitPrice": 25.00,
+            "netAmount": 250.00
+        },
+        {
+            "product_ID": "p6666666-1234-4a5e-a1b2-c3d4e5f6g7h8",
+            "quantity": 1,
+            "unitPrice": 50.00,
+            "netAmount": 50.00
+        }
+    ]
+}
+
+### 10. Verify the deep insert was created correctly
+GET http://localhost:4004/sales/SalesOrders?$filter=orderNumber eq 'SO-DEEP-777'&$expand=items
+
+# ====================VALIDATION TESTS(Session-18)(6-6-26)===================================
+
+@sales = http://localhost:4004/sales
+
+### Test 1: Create order without customer (should fail)
+POST {{sales}}/SalesOrders
+Content-Type: application/json
+
+{
+  "orderDate": "2026-06-15",
+  "items": [
+    { "product_ID": "p1000001-...", "quantity": 2, "unitPrice": 50.00 }
+  ]
+}
+
+### Test 2: Create order with past date (should fail)
+POST {{sales}}/SalesOrders
+Content-Type: application/json
+
+{
+  "customer_ID": "c1000001-...",
+  "orderDate": "2020-01-01",
+  "items": [
+    { "product_ID": "p1000001-...", "quantity": 2, "unitPrice": 50.00 }
+  ]
+}
+
+### Test 3: Create order with invalid item (quantity 0)
+POST {{sales}}/SalesOrders
+Content-Type: application/json
+
+{
+  "customer_ID": "c1000001-...",
+  "orderDate": "2026-06-15",
+  "items": [
+    { "product_ID": "p1000001-...", "quantity": 0, "unitPrice": 50.00 }
+  ]
+}
+
+### Test 4: Create valid order (should succeed + auto-calculate totals!)
+POST {{sales}}/SalesOrders
+Content-Type: application/json
+
+{
+  "customer_ID": "c1000001-...",
+  "orderNumber": "SO-201",
+  "orderDate": "2026-06-15",
+  "currency_code": "USD",
+  "items": [
+    { "product_ID": "p1000001-...", "quantity": 2, "unitPrice": 499.99 },
+    { "product_ID": "p1000002-...", "quantity": 1, "unitPrice": 29.99 }
+  ]
+}
+
+### Test 5: Try invalid status transition (New → Delivered should fail)
+PATCH {{sales}}/SalesOrders(ORDER-ID-FROM-TEST-4)
+Content-Type: application/json
+
+{
+  "status": "Delivered"
+}
+
+### Test 6: Valid status transition (New → Confirmed)
+PATCH {{sales}}/SalesOrders(ORDER-ID-FROM-TEST-4)
+Content-Type: application/json
+
+{
+  "status": "Confirmed"
+}
+
+# =================================================================================================
+
+### Call unbound action: GenerateReport
+POST http://localhost:4004/analytics/GenerateReport
+Content-Type: application/json
+
+{
+  "reportType": "Sales",
+  "startDate": "2026-01-01",
+  "endDate": "2026-05-31"
+}
+
+# =================================================================================================
+
+### Confirm
+POST http://localhost:4004/sales/SalesOrders('so444444-1234-4a5e-a1b2-c3d4e5f6g7h8')/SalesService.confirm
+Content-Type: application/json
+
+{}
+
+### Cancel
+POST http://localhost:4004/sales/SalesOrders('so222222-1234-4a5e-a1b2-c3d4e5f6g7h8')/SalesService.cancel
+Content-Type: application/json
+
+{
+  "reason": "Customer changed their mind"
+}
+
+### Ship
+POST http://localhost:4004/sales/SalesOrders('so333333-1234-4a5e-a1b2-c3d4e5f6g7h8')/SalesService.ship
+Content-Type: application/json
+
+{
+  "trackingNumber": "TRK-2026-ABC123",
+  "carrier": "FedEx"
+}
