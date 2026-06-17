@@ -1,6 +1,10 @@
-using { cuid, managed, Currency, Country } from '@sap/cds/common';
-
 namespace com.epm;
+
+using { managed, Currency, Country } from '@sap/cds/common';
+
+aspect cuid {
+  key ID : String(36);
+}
 
 // ─── SUPPLIERS ───────────────────────────────────
 entity Suppliers : cuid, managed {
@@ -115,7 +119,12 @@ entity ProductCatalog as select from Products {
     when stock > 20 then 'In Stock'
     when stock > 0  then 'Low Stock'
     else 'Out of Stock'
-  end as availability : String(20)
+  end as availability : String(20),
+  case
+    when stock > 20 then 3
+    when stock > 0  then 2
+    else 1
+  end as criticality : Integer
 } where isAvailable = true;
 
 // View: Order Summary (flattened for reports)

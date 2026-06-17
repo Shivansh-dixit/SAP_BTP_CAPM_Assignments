@@ -5,21 +5,33 @@
     "@sap/cds": "^9"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^2.4"
+    "@cap-js/sqlite": "^2.4",
+    "cds-plugin-ui5": "^0.17.0"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-epm_model": "cds watch --open epmmodel/index.html?sap-ui-xx-viewCache=false --livereload false",
+    "watch-epm_model_1": "cds watch --open epmmodel1/index.html?sap-ui-xx-viewCache=false --livereload false"
   },
   "private": true,
-
-"cds": {
-  "requires": {
-    "db": {
-      "kind": "sqlite",
-      "credentials": {
-        "url": "db.sqlite"
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
       }
     }
-  }
-}
+  },
+  "workspaces": [
+    "app/*"
+  ],
+  "sapux": [
+    "app/epm_model",
+    "app/epm_model",
+    "app/epm_model",
+    "app/epm_model",
+    "app/epm_model_1"
+  ]
 }

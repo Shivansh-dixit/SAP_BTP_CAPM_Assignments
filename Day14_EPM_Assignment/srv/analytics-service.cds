@@ -20,4 +20,9 @@ service AnalyticsService @(path:'/analytics') {
 
     @readonly
     entity ProductCatalog as projection on epm.ProductCatalog;
+
+    @readonly
+    entity AvailabilityValues {
+        key value : String(20);
+    }
 }

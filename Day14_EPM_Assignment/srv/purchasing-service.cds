@@ -2,7 +2,21 @@ using { com.epm as db } from '../db/schema';
 
 service PurchasingService @(path: '/purchasing') {
 
-  entity PurchaseOrders as projection on db.PurchaseOrders
+  @odata.draft.enabled
+  
+  entity PurchaseOrders as projection on db.PurchaseOrders{
+    *,
+    case status
+      when 'Approved'  then 3
+      when 'Completed' then 3
+      when 'Submitted' then 2
+      when 'Draft'     then 2
+      when 'Rejected'  then 1
+      when 'Closed'    then 1
+      else 0
+    end as criticality : Integer
+  }
+
     actions {
       // Workflow actions
       action submit() returns { status: String; message: String; };

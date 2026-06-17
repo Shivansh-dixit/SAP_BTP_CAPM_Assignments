@@ -243,4 +243,41 @@ module.exports = function () {
     console.log(`   → Returned to requester\n`);
   });
 
+  // ─── Auto-calculate netAmount on PurchaseOrderItems ───
+  this.before('UPDATE', 'PurchaseOrderItems', async (req) => {
+    const { quantity, unitPrice } = req.data;
+
+    if (quantity !== undefined || unitPrice !== undefined) {
+      const { PurchaseOrderItems } = cds.entities('com.epm');
+
+      const item = await SELECT.one.from(PurchaseOrderItems)
+        .where({ ID: req.data.ID });
+
+      const qty = quantity ?? item?.quantity ?? 0;
+      const price = unitPrice ?? item?.unitPrice ?? 0;
+
+      req.data.netAmount = +(qty * price).toFixed(2);
+    }
+  });
+
+  // ─── Recalculate PO grossAmount when items change ─────
+  this.after(['CREATE', 'UPDATE', 'DELETE'], 'PurchaseOrderItems', async (data, req) => {
+    const { PurchaseOrderItems, PurchaseOrders } = cds.entities('com.epm');
+
+    const item = Array.isArray(data) ? data[0] : data;
+    const poId = item?.purchaseOrder_ID || req.data?.purchaseOrder_ID;
+
+    if (!poId) return;
+
+    const items = await SELECT.from(PurchaseOrderItems)
+      .where({ purchaseOrder_ID: poId });
+
+    const grossAmount = items.reduce((sum, i) =>
+      sum + ((i.quantity || 0) * (i.unitPrice || 0)), 0);
+
+    await UPDATE(PurchaseOrders)
+      .set({ grossAmount: +grossAmount.toFixed(2) })
+      .where({ ID: poId });
+  });
+
 };
