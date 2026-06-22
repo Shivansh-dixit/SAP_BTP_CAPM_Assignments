@@ -2,7 +2,9 @@
   "name": "day14_epm_assignment",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/cds": "^9"
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4"
   },
   "devDependencies": {
     "@cap-js/sqlite": "^2.4",
@@ -21,11 +23,33 @@
         "credentials": {
           "url": "db.sqlite"
         }
+      },
+      "[production]": {
+        "auth": {
+        "kind": "xsuaa",
+        "[development]": {
+          "kind": "mocked",
+          "users": {
+            "viewer@test.com": {
+              "password": "pass",
+              "roles": ["Viewer"]
+            },
+            "manager@test.com": {
+              "password": "pass",
+              "roles": ["PurchaseManager"]
+            },
+            "admin@test.com": {
+              "password": "pass",
+              "roles": ["Administrator"]
+            }
+          }
+        }
+      }
       }
     }
   },
   "workspaces": [
-    "app/*"
+    "app/*" 
   ],
   "sapux": [
     "app/epm_model",
