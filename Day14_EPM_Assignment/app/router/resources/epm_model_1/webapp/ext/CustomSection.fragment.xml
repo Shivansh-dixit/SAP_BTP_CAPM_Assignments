@@ -3,9 +3,9 @@
     <m:Title text="Order Value Status" level="H3" id="orderValueTitle"/>
     <m:ProgressIndicator
       id="orderValueProgress"
-      percentValue="{= ${netAmount} > 3000 ? 100 : (${netAmount} / 30) }"
-      displayValue="{= ${netAmount} > 3000 ? '100% of budget used' : (${netAmount} / 30) + '% of budget used' }"
-      state="{= ${netAmount} > 3000 ? 'Error' : (${netAmount} > 2400 ? 'Warning' : 'Success') }"
+      percentValue="50"
+      displayValue="Order Value Status"
+      state="Success"
     />
     <m:Text
       id="orderValueText"
