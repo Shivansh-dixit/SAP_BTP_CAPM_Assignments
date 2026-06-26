@@ -1,0 +1,2 @@
+#2026 06 25 05:08:23.637#Z#DEBUG#d13b5946-7053-11f1-b94b-eeee0a95ec30.day14_epm_assignment-ui-deployer_day14_epm_assignment-html5-repo-host#flowable-async-job-executor-thread-10677#
+[PollDeployContentStatusExecution] [day14_epm_assignment-ui-deployer] [ERROR] Upload application content failed { CODE: '1001' } validation error: Invalid file format. The request body must include a zip file that contains a zip file for each HTML5 application.#

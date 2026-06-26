@@ -1,7 +1,7 @@
 {
   "_version": "1.85.0",
   "sap.app": {
-    "id": "epmmodel1",
+    "id": "day14_epm_assignment.epmmodel1",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -22,6 +22,19 @@
         "settings": {
           "annotations": [],
           "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "intent1": {
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          },
+          "semanticObject": "PurchaseOrders",
+          "action": "manage",
+          "title": "Manage Purchase Orders"
         }
       }
     }
@@ -126,34 +139,37 @@
           }
         },
         "PurchaseOrdersObjectPage": {
-  "type": "Component",
-  "id": "PurchaseOrdersObjectPage",
-  "name": "sap.fe.templates.ObjectPage",
-  "options": {
-    "settings": {
-      "editableHeaderContent": false,
-      "contextPath": "/PurchaseOrders",
-      "navigation": {
-        "items": {
-          "detail": {
-            "route": "PurchaseOrderItemsObjectPage"
+          "type": "Component",
+          "id": "PurchaseOrdersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/PurchaseOrders",
+              "navigation": {
+                "items": {
+                  "detail": {
+                    "route": "PurchaseOrderItemsObjectPage"
+                  }
+                }
+              },
+              "content": {
+                "body": {
+                  "sections": {
+                    "customOrderValueSection": {
+                      "template": "epmmodel1.ext.CustomSection",
+                      "title": "Order Value Status",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "GeneralInfo"
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
-        }
-      },
-      "content": {
-      "body": {
-      "sections": {
-      "customOrderValueSection": {
-        "template": "epmmodel1.ext.CustomSection",
-        "title": "Order Value Status",
-        "position": { "placement": "After", "anchor": "GeneralInfo" }
-          }
-        }
-      }
-    }
-    }
-  }
-},
+        },
         "PurchaseOrderItemsObjectPage": {
           "type": "Component",
           "id": "PurchaseOrderItemsObjectPage",
@@ -171,6 +187,10 @@
   "sap.fiori": {
     "registrationIds": [],
     "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "day14_epm_assignment"
   },
   "sap.fe": {
     "app": {

@@ -8,14 +8,18 @@
     "sapui5"
   ],
   "main": "webapp/index.html",
-  "dependencies": {},
   "devDependencies": {
-    "@ui5/cli": "^4.0.33",
-    "@sap/ux-ui5-tooling": "1",
     "@sap-ux/eslint-plugin-fiori-tools": "^10.0.0",
-    "eslint": "^10"
+    "@sap/ux-ui5-tooling": "1",
+    "@ui5/cli": "^4.0.33",
+    "bestzip": "^3.0.1",
+    "eslint": "^10",
+    "ui5-task-zipper": "^3.6.1"
   },
   "scripts": {
-    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf"
+    "build": "npm run build:cf",
+    "start": "ui5 serve",
+    "deploy-config": "npx -p @sap/ux-ui5-tooling fiori add deploy-config cf",
+    "build:cf": "ui5 build --config ui5-deploy.yaml --clean-dest"
   }
 }

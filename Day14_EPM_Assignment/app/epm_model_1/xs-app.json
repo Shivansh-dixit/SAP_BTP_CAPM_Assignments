@@ -5,7 +5,7 @@
     {
       "source": "^/purchasing/(.*)$",
       "target": "/purchasing/$1",
-      "destination": "epm-management-api",
+      "destination": "srv-api",
       "authenticationType": "xsuaa",
       "csrfProtection": false
     },

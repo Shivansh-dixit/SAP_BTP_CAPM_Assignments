@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns:m="sap.m">
+  <m:VBox class="sapUiSmallMargin" id="orderValueBox">
+    <m:Title text="Order Value Status" level="H3" id="orderValueTitle"/>
+    <m:ProgressIndicator
+      id="orderValueProgress"
+      percentValue="{= ${netAmount} > 3000 ? 100 : (${netAmount} / 30) }"
+      displayValue="{= ${netAmount} > 3000 ? '100% of budget used' : (${netAmount} / 30) + '% of budget used' }"
+      state="{= ${netAmount} > 3000 ? 'Error' : (${netAmount} > 2400 ? 'Warning' : 'Success') }"
+    />
+    <m:Text
+      id="orderValueText"
+      text="Budget threshold: 3,000"
+      class="sapUiTinyMarginTop"
+    />
+  </m:VBox>
+</core:FragmentDefinition>
